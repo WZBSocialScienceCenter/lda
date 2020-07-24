@@ -76,7 +76,8 @@ for:
       - image: macOS
 
   install:
-    - "source $PYTHON_MAC/bin/activate"
+    - "echo $HOME"
+    - "source $HOME/venv3.6/bin/activate"
     # Check that we have the expected version and architecture for Python
     - "python --version"
     - "python -c \"import struct; print(struct.calcsize('P') * 8)\""

@@ -94,3 +94,6 @@ after_test:
   # APPVEYOR_REPO_TAG will be true if commit is tagged
   - "IF /I %APPVEYOR_REPO_TAG%==true (%CMD_IN_ENV% pip install wheelhouse-uploader)"
   - "IF /I %APPVEYOR_REPO_TAG%==true (%CMD_IN_ENV% python -m wheelhouse_uploader upload --local-folder=dist --no-ssl-check --no-update-index --region=IAD wheels)"
+
+artifacts:
+  - path: 'dist\*.whl'

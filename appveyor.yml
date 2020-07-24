@@ -1,5 +1,5 @@
 image:
-  - Visual Studio 2019
+#  - Visual Studio 2019
   - macOS
 
 environment:
@@ -76,7 +76,7 @@ for:
       - image: macOS
 
   install:
-    - "source %PYTHON_MAC%/bin/activate"
+    - "source $PYTHON_MAC/bin/activate"
     # Check that we have the expected version and architecture for Python
     - "python --version"
     - "python -c \"import struct; print(struct.calcsize('P') * 8)\""

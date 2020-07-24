@@ -1,6 +1,18 @@
+#
+# build configuration for appveyor.com
+#
+
+#
+# OS versions to build on
+#
+
 image:
 #  - Visual Studio 2019
   - macOS
+
+#
+# Python versions to build on
+#
 
 environment:
   matrix:
@@ -20,11 +32,11 @@ environment:
 
     - PYTHON_VERSION: "3.7.x"
       PYTHON_WIN: "C:\\Python37"
-      PYTHON_MAC: "venv3.7"
       PYTHON_ARCH: "32"
 
     - PYTHON_VERSION: "3.7.x"
       PYTHON_WIN: "C:\\Python37-x64"
+      PYTHON_MAC: "venv3.7"
       PYTHON_ARCH: "64"
 
     - PYTHON_VERSION: "3.8.x"
@@ -39,7 +51,12 @@ environment:
 matrix:
   exclude:
     - image: macOS
-      PYTHON_ARCH: "32"
+      PYTHON_ARCH: "32"    # 32bit only for Windows
+
+
+#
+# Windows-specific build steps
+#
 
 for:
 -
@@ -72,6 +89,11 @@ for:
     # Install the generated wheel package to test it
     - "pip install --pre --no-index --find-links dist/ lda"
 
+
+#
+# MacOS-specific build steps
+#
+
 -
   matrix:
     only:
@@ -96,6 +118,10 @@ for:
 
 build: false  # building occurs during install above
 
+#
+# testing steps
+#
+
 test_script:
   # Change to a non-source folder to make sure we run the tests on the
   # installed library.
@@ -104,6 +130,10 @@ test_script:
   - "python -m unittest discover lda"
   # Move back to the project folder
   - "cd .."
+
+#
+# generated downloadable wheels
+#
 
 artifacts:
   - path: 'dist\*.whl'

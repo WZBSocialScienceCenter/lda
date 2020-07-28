@@ -7,9 +7,9 @@
 #
 
 image:
-#  - Visual Studio 2019
-#  - macOS
-#  - macOS-Mojave
+  - Visual Studio 2019
+  - macOS
+  - macOS-Mojave
   - Ubuntu
 #  - Ubuntu2004
 
@@ -59,8 +59,8 @@ matrix:
       PYTHON_ARCH: "32"    # 32bit only for Windows
     - image: Ubuntu
       PYTHON_ARCH: "32"    # 32bit only for Windows
-    - image: Ubuntu2004
-      PYTHON_ARCH: "32"    # 32bit only for Windows
+#    - image: Ubuntu2004
+#      PYTHON_ARCH: "32"    # 32bit only for Windows
 
 #
 # Windows-specific build steps
@@ -108,7 +108,7 @@ for:
       - image: macOS
       - image: macOS-Mojave
       - image: Ubuntu
-      - image: Ubuntu2004
+#      - image: Ubuntu2004
 
   install:
     - "echo $HOME"

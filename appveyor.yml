@@ -152,7 +152,8 @@ artifacts:
 deploy:
   - provider: GitHub
     description: 'ldafork wheel package'
-
+    tag: $(APPVEYOR_REPO_TAG_NAME)
+    release: ldafork-$(APPVEYOR_REPO_TAG_NAME)
     auth_token:
       secure: flEOzMzdOLZZKb5B+n4RAWJumMH20t+IDZYV5gXnykT9IWqO/XqQBdZuGQwkQ49M
     artifact: /.*\.whl/
@@ -160,4 +161,4 @@ deploy:
     prerelease: false
     on:
       branch: develop
-      APPVEYOR_REPO_TAG: false        # deploy on tag push only
+      APPVEYOR_REPO_TAG: true        # deploy on tag push only

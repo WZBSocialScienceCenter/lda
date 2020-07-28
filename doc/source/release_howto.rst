@@ -21,6 +21,8 @@ Note that ``pbr`` requires tags to be signed for its version calculations.
      - Run ``make cython`` so sdist can find the Cython-generated c files.
      - Build source package with ``python setup.py sdist``.
 
+3. Build Linux, MacOS and Windows wheels via AppVeyor.
+
 3. Build windows wheels, place wheels in ``dist/``.
 
 Windows wheels are built using appveyor, see ``continuous_integration/appveyor/``.

@@ -3,16 +3,6 @@
 #
 
 #
-# branches / tags to build
-#
-
-branches:
-  only:
-#    - master
-#    - develop
-    - /\d*\.\d*\.\d*.*/
-
-#
 # OS versions to build on
 #
 

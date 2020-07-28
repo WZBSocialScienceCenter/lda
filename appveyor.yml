@@ -162,14 +162,14 @@ deploy:
     on:
       APPVEYOR_REPO_TAG: true        # deploy on tag push only
 
-  - provider: GitHub
-    description: 'ldafork wheel package for current development version'
-    tag: current-develop
-    release: ldafork-current-develop
-    auth_token:
-      secure: flEOzMzdOLZZKb5B+n4RAWJumMH20t+IDZYV5gXnykT9IWqO/XqQBdZuGQwkQ49M
-    artifact: /.*\.whl/
-    draft: false
-    prerelease: true
-    on:
-      branch: develop
+#  - provider: GitHub
+#    description: 'ldafork wheel package for current development version'
+#    tag: current-develop
+#    release: ldafork-current-develop
+#    auth_token:
+#      secure: flEOzMzdOLZZKb5B+n4RAWJumMH20t+IDZYV5gXnykT9IWqO/XqQBdZuGQwkQ49M
+#    artifact: /.*\.whl/
+#    draft: false
+#    prerelease: true
+#    on:
+#      branch: develop

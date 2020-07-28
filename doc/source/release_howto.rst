@@ -2,7 +2,7 @@
  How to make a release of lda
 ==============================
 
-Fingerprint of signing key is ``FDQZUFoC3Q2MBZsIeRNiYYrvVWbp2hFXe5ZARW5CaM0``.
+Fingerprint of signing key is ``D5493B3459D0858AB8CE06E44D811ED4C698940F``.
 
 Note that ``pbr`` requires tags to be signed for its version calculations.
 
@@ -11,7 +11,7 @@ Note that ``pbr`` requires tags to be signed for its version calculations.
     - Tests pass.
     - Changes since last release are mentioned in ``doc/source/whats_new.rst``.
     - Signed tag for the current release exists.
-      Run ``git tag -s -u FDQZUFoC3Q2MBZsIeRNiYYrvVWbp2hFXe5ZARW5CaM0 <n.n.n>``.
+      Run ``git tag -s -u D5493B3459D0858AB8CE06E44D811ED4C698940F <n.n.n>``.
 
 2. Build source distribution.
 
@@ -38,4 +38,4 @@ wheels in ``dist/``.
 
 6. Upload and sign each wheel
 
-``$ for fn in dist/*.whl; do twine upload -i FDQZUFoC3Q2MBZsIeRNiYYrvVWbp2hFXe5ZARW5CaM0 --sign $fn; done``
+``$ for fn in dist/*.whl; do twine upload -i D5493B3459D0858AB8CE06E44D811ED4C698940F --sign $fn; done``

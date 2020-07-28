@@ -148,3 +148,16 @@ test_script:
 
 artifacts:
   - path: 'dist\*.whl'
+
+deploy:
+  - provider: GitHub
+    description: 'ldafork wheel package'
+
+    auth_token:
+      secure: flEOzMzdOLZZKb5B+n4RAWJumMH20t+IDZYV5gXnykT9IWqO/XqQBdZuGQwkQ49M
+    artifact: /.*\.whl/
+    draft: false
+    prerelease: false
+    on:
+      branch: develop
+      APPVEYOR_REPO_TAG: true        # deploy on tag push only

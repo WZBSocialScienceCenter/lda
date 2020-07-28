@@ -8,7 +8,8 @@
 
 image:
 #  - Visual Studio 2019
-  - macOS
+#  - macOS
+  - Ubuntu
 
 #
 # Python versions to build on
@@ -27,7 +28,7 @@ environment:
 
     - PYTHON_VERSION: "3.6.x"
       PYTHON_WIN: "C:\\Python36-x64"
-      PYTHON_MAC: "venv3.6"
+      PYTHON_UNIX: "venv3.6"
       PYTHON_ARCH: "64"
 
     - PYTHON_VERSION: "3.7.x"
@@ -36,7 +37,7 @@ environment:
 
     - PYTHON_VERSION: "3.7.x"
       PYTHON_WIN: "C:\\Python37-x64"
-      PYTHON_MAC: "venv3.7"
+      PYTHON_UNIX: "venv3.7"
       PYTHON_ARCH: "64"
 
     - PYTHON_VERSION: "3.8.x"
@@ -45,14 +46,15 @@ environment:
 
     - PYTHON_VERSION: "3.8.x"
       PYTHON_WIN: "C:\\Python38-x64"
-      PYTHON_MAC: "venv3.8"
+      PYTHON_UNIX: "venv3.8"
       PYTHON_ARCH: "64"
 
 matrix:
   exclude:
     - image: macOS
       PYTHON_ARCH: "32"    # 32bit only for Windows
-
+    - image: Ubuntu
+      PYTHON_ARCH: "32"    # 32bit only for Windows
 
 #
 # Windows-specific build steps
@@ -97,11 +99,13 @@ for:
 -
   matrix:
     only:
-      - image: macOS
+      image:
+        - macOS
+        - Ubuntu
 
   install:
     - "echo $HOME"
-    - "source $HOME/$PYTHON_MAC/bin/activate"
+    - "source $HOME/$PYTHON_UNIX/bin/activate"
     # Check that we have the expected version and architecture for Python
     - "python --version"
     - "python -c \"import struct; print(struct.calcsize('P') * 8)\""

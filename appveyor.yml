@@ -99,9 +99,8 @@ for:
 -
   matrix:
     only:
-      image:
-        - macOS
-        - Ubuntu
+      - image: macOS
+      - image: Ubuntu
 
   install:
     - "echo $HOME"

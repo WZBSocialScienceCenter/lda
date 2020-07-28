@@ -4,33 +4,10 @@
 Installing lda
 ==============
 
-lda requires Python (>= 3.5) and NumPy (>= 1.13.0). If these
-requirements are satisfied, lda should install successfully with::
+lda requires Python (>= 3.6). The package should install successfully with::
 
-    pip install lda
+    pip install ldafork
 
-If you encounter problems, consult the platform-specific instructions below.
-
-Windows
--------
-
-lda and its dependencies are all available as wheel packages for Windows::
-
-    pip install lda
-
-Mac OS X
---------
-
-lda and its dependencies are all available as wheel packages for Mac OS X::
-
-    pip install lda
-
-Linux
------
-
-lda and its dependencies are all available as wheel packages for most distributions of Linux::
-
-    pip install lda
 
 Installation from source
 ------------------------

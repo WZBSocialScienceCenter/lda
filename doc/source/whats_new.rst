@@ -6,6 +6,10 @@
  What's New
 ============
 
+ldafork v1.2.0  (28. July 2020)
+===============================
+- Wheels for Python 3.8
+
 v1.1.0 (9. September 2018)
 ==========================
 - Wheels for Python 3.7

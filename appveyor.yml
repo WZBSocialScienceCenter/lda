@@ -7,9 +7,11 @@
 #
 
 image:
-#  - Visual Studio 2019
-#  - macOS
+  - Visual Studio 2019
+  - macOS
+  - macOS-Mojave
   - Ubuntu
+  - Ubuntu2004
 
 #
 # Python versions to build on
@@ -53,7 +55,11 @@ matrix:
   exclude:
     - image: macOS
       PYTHON_ARCH: "32"    # 32bit only for Windows
+    - image: macOS-Mojave
+      PYTHON_ARCH: "32"    # 32bit only for Windows
     - image: Ubuntu
+      PYTHON_ARCH: "32"    # 32bit only for Windows
+    - image: Ubuntu2004
       PYTHON_ARCH: "32"    # 32bit only for Windows
 
 #
@@ -100,7 +106,9 @@ for:
   matrix:
     only:
       - image: macOS
+      - image: macOS-Mojave
       - image: Ubuntu
+      - image: Ubuntu2004
 
   install:
     - "echo $HOME"

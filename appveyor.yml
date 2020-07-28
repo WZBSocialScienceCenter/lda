@@ -170,5 +170,4 @@ deploy:
     draft: false
     prerelease: false
     on:
-      branch: develop
       APPVEYOR_REPO_TAG: true        # deploy on tag push only

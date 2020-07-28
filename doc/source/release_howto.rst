@@ -23,21 +23,9 @@ Note that ``pbr`` requires tags to be signed for its version calculations.
 
 3. Build Linux, MacOS and Windows wheels via AppVeyor.
 
-3. Build windows wheels, place wheels in ``dist/``.
+The built wheels are pushed to the GitHub releases page. They can be downloaded to the ``dist/`` folder via
+``download_releases.py``.
 
-Windows wheels are built using appveyor, see ``continuous_integration/appveyor/``.
-Once built they can be retrieved using ``continuous_integration/download_wheels.sh``.
-
-4. Build macOS / OS X wheels, place wheels in ``dist/``.
-
-macOS / OS X wheels are built via ``https://github.com/lda-project/lda-wheels``.
-Put wheels in ``dist/``.
-
-5. Build linux wheels, place wheels in ``dist/``.
-
-Linux wheels are built via ``https://github.com/lda-project/lda-wheels``. Put
-wheels in ``dist/``.
-
-6. Upload and sign each wheel
+4. Upload and sign each wheel
 
 ``$ for fn in dist/*.whl; do twine upload -i D5493B3459D0858AB8CE06E44D811ED4C698940F --sign $fn; done``

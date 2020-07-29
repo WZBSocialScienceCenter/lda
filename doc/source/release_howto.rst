@@ -24,7 +24,7 @@ Note that ``pbr`` requires tags to be signed for its version calculations.
 3. Build Linux, MacOS and Windows wheels via AppVeyor.
 
 The built wheels are pushed to the GitHub releases page. They can be downloaded to the ``dist/`` folder via
-``download_releases.py``.
+``download_releases.py`` (make sure to install the dependencies from ``deploy-requirements.txt`` first).
 
 4. Upload and sign each wheel
 

@@ -38,8 +38,13 @@ files.
 
 4. Build MacOS and Windows wheels via AppVeyor.
 
+Push the created tag to the repository connected to AppVeyor. This should trigger AppVeyor to build the MacOS
+and Windows builds.
+
 The built wheels are pushed to the GitHub releases page. They can be downloaded to the ``dist/`` folder via
 ``download_releases.py`` (make sure to install the dependencies from ``deploy-requirements.txt`` first).
+
+You may manually upload the generated manylinux wheels to the GitHub release page, too.
 
 5. Upload and sign each wheel
 

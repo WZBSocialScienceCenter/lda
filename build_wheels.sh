@@ -22,6 +22,7 @@ function repair_wheel {
 #git checkout $LAST
 
 PYVERS="36 37 38"
+#PYVERS="38"
 
 for v in $PYVERS; do
   cd /io

@@ -10,7 +10,7 @@ image:
   - Visual Studio 2019
   - macOS
   - macOS-Mojave
-  - Ubuntu
+#  - Ubuntu
 #  - Ubuntu2004
 
 #
@@ -57,8 +57,8 @@ matrix:
       PYTHON_ARCH: "32"    # 32bit only for Windows
     - image: macOS-Mojave
       PYTHON_ARCH: "32"    # 32bit only for Windows
-    - image: Ubuntu
-      PYTHON_ARCH: "32"    # 32bit only for Windows
+#    - image: Ubuntu
+#      PYTHON_ARCH: "32"    # 32bit only for Windows
 #    - image: Ubuntu2004
 #      PYTHON_ARCH: "32"    # 32bit only for Windows
 
@@ -107,7 +107,7 @@ for:
     only:
       - image: macOS
       - image: macOS-Mojave
-      - image: Ubuntu
+#      - image: Ubuntu
 #      - image: Ubuntu2004
 
   install:

@@ -2,7 +2,7 @@
  How to make a release of lda
 ==============================
 
-Fingerprint of signing key is ``94D5E5A35ED429648B1C627AD96242D5314C8249``.
+Fingerprint of signing key is ``D5493B3459D0858AB8CE06E44D811ED4C698940F``.
 
 Note that ``pbr`` requires tags to be signed for its version calculations.
 
@@ -10,7 +10,8 @@ Note that ``pbr`` requires tags to be signed for its version calculations.
 
     - Tests pass.
     - Changes since last release are mentioned in ``doc/source/whats_new.rst``.
-    - Signed tag for the current release exists. Run ``git tag -s -u 94D5E5A35ED429648B1C627AD96242D5314C8249 <n.n.n>``.
+    - Signed tag for the current release exists.
+      Run ``git tag -s -u D5493B3459D0858AB8CE06E44D811ED4C698940F <n.n.n>``.
 
 2. Build source distribution.
 
@@ -20,21 +21,32 @@ Note that ``pbr`` requires tags to be signed for its version calculations.
      - Run ``make cython`` so sdist can find the Cython-generated c files.
      - Build source package with ``python setup.py sdist``.
 
-3. Build windows wheels, place wheels in ``dist/``.
+3. Build Linux wheels via `manylinux <https://github.com/pypa/manylinux>`_ docker images (either locally or via Travis)
 
-Windows wheels are built using appveyor, see ``continuous_integration/appveyor/``.
-Once built they can be retrieved using ``continuous_integration/download_wheels.sh``.
+To install the docker images locally, run:
 
-4. Build macOS / OS X wheels, place wheels in ``dist/``.
+    docker pull quay.io/pypa/manylinux1_x86_64
+    docker pull quay.io/pypa/manylinux1_i686
 
-macOS / OS X wheels are built via ``https://github.com/lda-project/lda-wheels``.
-Put wheels in ``dist/``.
+Then from the project root, run the following to generate manylinux1 wheels for 64 and 32 bit architectures:
 
-5. Build linux wheels, place wheels in ``dist/``.
+    docker run --rm -e PLAT=manylinux1_x86_64 -v `pwd`:/io quay.io/pypa/manylinux1_x86_64 /io/build_wheels.sh
+    docker run --rm -e PLAT=manylinux1_i686 -v `pwd`:/io quay.io/pypa/manylinux1_i686 /io/build_wheels.sh
 
-Linux wheels are built via ``https://github.com/lda-project/lda-wheels``. Put
-wheels in ``dist/``.
+To make life easier, run ``sudo build_manylinux_docker.sh`` which also sets the proper ownership for the resulting
+files.
 
-6. Upload and sign each wheel
+4. Build MacOS and Windows wheels via AppVeyor.
 
-``$ for fn in dist/*.whl; do twine upload -i 94D5E5A35ED429648B1C627AD96242D5314C8249 --sign $fn; done``
+Push the created tag to the repository connected to AppVeyor. This should trigger AppVeyor to build the MacOS
+and Windows builds.
+
+The built wheels are pushed to the GitHub releases page. They can be downloaded to the ``dist/`` folder via
+``download_releases.py`` (make sure to install the dependencies from ``deploy-requirements.txt`` first).
+
+You may manually upload the generated manylinux wheels to the GitHub release page, too.
+
+5. Upload and sign each wheel
+
+    for fn in dist/*.whl; do twine upload -i D5493B3459D0858AB8CE06E44D811ED4C698940F --sign $fn; done
+

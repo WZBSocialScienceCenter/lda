@@ -1,17 +1,25 @@
 lda: Topic modeling with latent Dirichlet allocation
 ====================================================
 
-|pypi| |travis| |zenodo|
+|zenodo|
 
 ``lda`` implements latent Dirichlet allocation (LDA) using collapsed Gibbs
-sampling. ``lda`` is fast and is tested on Linux, OS X, and Windows.
+sampling. ``lda`` is fast and is tested on Linux, OS X, and Windows. This is
+a maintainance fork of the original code for newer Python versions.
 
 You can read more about lda in `the documentation <https://lda.readthedocs.io>`_.
+
+.. note::
+    This is a fork of the original `lda package <https://github.com/lda-project/lda>`_ developed by
+    `Allan Riddell <https://github.com/ariddell>`_ to maintain the package for newer Python versions, OS versions and
+    dependencies. The only difference to the original implementation are compatibility fixes implemented for this
+    purpose. This fork specifically provides wheels (installable binary packages) for Python 3.6 to Python 3.8 on
+    Linux, MacOS and Windows 10.
 
 Installation
 ------------
 
-``pip install lda``
+``pip install ldafork``
 
 Getting started
 ---------------
@@ -86,7 +94,8 @@ The document-topic distributions are available in ``model.doc_topic_``.
 Requirements
 ------------
 
-Python 2.7 or Python 3.5+ is required. The following packages are required
+Python 3.6+ is required. The following packages are required and will be installed along with with *ldafork* when you
+use *pip*:
 
 - numpy_
 - pbr_
@@ -137,14 +146,6 @@ lda is licensed under Version 2.0 of the Mozilla Public License.
 .. _Pritchard et al. (2000): http://www.genetics.org/content/155/2/945.full
 .. _Griffiths and Steyvers (2004): http://www.pnas.org/content/101/suppl_1/5228.abstract
 
-.. |pypi| image:: https://badge.fury.io/py/lda.png
-    :target: https://pypi.python.org/pypi/lda
-    :alt: pypi version
-
-.. |travis| image:: https://travis-ci.org/lda-project/lda.png?branch=master
-    :target: https://travis-ci.org/lda-project/lda
-    :alt: travis-ci build status
-
-.. |zenodo| image:: https://zenodo.org/badge/doi/10.5281/zenodo.57927.svg
-    :target: https://doi.org/10.5281/zenodo.57927
+.. |zenodo| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1412135.svg
+    :target: https://doi.org/10.5281/zenodo.1412135
     :alt: Zenodo citation

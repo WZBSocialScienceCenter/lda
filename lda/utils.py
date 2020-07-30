@@ -1,16 +1,7 @@
-from __future__ import absolute_import, unicode_literals  # noqa
-
 import logging
 import numbers
-import sys
 
 import numpy as np
-
-PY2 = sys.version_info[0] == 2
-if PY2:
-    import itertools
-    zip = itertools.izip
-
 
 logger = logging.getLogger('lda')
 
@@ -52,7 +43,7 @@ def matrix_to_lists(doc_word):
     except AttributeError:
         sparse = False
 
-    if sparse and not np.issubdtype(doc_word.dtype, int):
+    if sparse and doc_word.dtype.kind not in {'i', 'u'}:   # check that general kind of data is signed or unsigned int
         raise ValueError("expected sparse matrix with integer values, found float values")
 
     ii, jj = np.nonzero(doc_word)
@@ -108,7 +99,7 @@ def dtm2ldac(dtm, offset=0):
         dtm = dtm.tocsr()
     except AttributeError:
         pass
-    assert np.issubdtype(dtm.dtype, int)
+    assert dtm.dtype.kind in {'i', 'u'}
     n_rows = dtm.shape[0]
     for i, row in enumerate(dtm):
         try:
@@ -148,13 +139,13 @@ def ldac2dtm(stream, offset=0):
     N = 0
     V = -1
     data = []
-    for l in doclines:
-        l = l.strip()
+    for line in doclines:
+        line = line.strip()
         # skip empty lines
-        if not l:
+        if not line:
             continue
-        unique_terms = int(l.split(' ')[0])
-        term_cnt_pairs = [s.split(':') for s in l.split(' ')[1:]]
+        unique_terms = int(line.split(' ')[0])
+        term_cnt_pairs = [s.split(':') for s in line.split(' ')[1:]]
         for v, _ in term_cnt_pairs:
             # check that format is indeed LDA-C with the appropriate offset
             if int(v) == 0 and offset == 1:

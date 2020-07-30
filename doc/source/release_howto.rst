@@ -33,7 +33,7 @@ Then from the project root, run the following to generate manylinux1 wheels for 
     docker run --rm -e PLAT=manylinux1_x86_64 -v `pwd`:/io quay.io/pypa/manylinux1_x86_64 /io/build_wheels.sh
     docker run --rm -e PLAT=manylinux1_i686 -v `pwd`:/io quay.io/pypa/manylinux1_i686 /io/build_wheels.sh
 
-To make life easier, run ``sudo build_manylinux_docker.sh`` which also sets the proper ownership for the resulting
+To make life easier, run ``sudo ./build_manylinux_docker.sh`` which also sets the proper ownership for the resulting
 files.
 
 4. Build MacOS and Windows wheels via AppVeyor.

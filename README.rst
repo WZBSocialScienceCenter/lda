@@ -1,7 +1,7 @@
 lda: Topic modeling with latent Dirichlet allocation
 ====================================================
 
-|pypi| |zenodo|
+|zenodo|
 
 ``lda`` implements latent Dirichlet allocation (LDA) using collapsed Gibbs
 sampling. ``lda`` is fast and is tested on Linux, OS X, and Windows. This is
@@ -94,7 +94,8 @@ The document-topic distributions are available in ``model.doc_topic_``.
 Requirements
 ------------
 
-Python 3.6+ is required. The following packages are required
+Python 3.6+ is required. The following packages are required and will be installed along with with *ldafork* when you
+use *pip*:
 
 - numpy_
 - pbr_
@@ -144,10 +145,6 @@ lda is licensed under Version 2.0 of the Mozilla Public License.
 .. _Blei et al. (2003): http://jmlr.org/papers/v3/blei03a.html
 .. _Pritchard et al. (2000): http://www.genetics.org/content/155/2/945.full
 .. _Griffiths and Steyvers (2004): http://www.pnas.org/content/101/suppl_1/5228.abstract
-
-.. |pypi| image:: https://badge.fury.io/py/ldafork.png
-    :target: https://pypi.python.org/pypi/ldafork
-    :alt: pypi version
 
 .. |zenodo| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1412135.svg
     :target: https://doi.org/10.5281/zenodo.1412135

@@ -122,8 +122,8 @@ Important links
 ---------------
 
 - Documentation: http://lda.readthedocs.org
-- Source code: https://github.com/lda-project/lda/
-- Issue tracker: https://github.com/lda-project/lda/issues
+- Source code: https://github.com/WZBSocialScienceCenter/lda
+- Issue tracker: https://github.com/WZBSocialScienceCenter/lda/issues
 
 Other implementations
 ---------------------
